@@ -2,7 +2,7 @@
 
 
 
-# [Project Name] 🎯
+# SIVRAJ - InvertAI Assistant 🎯
 
 
 ## Basic Details
