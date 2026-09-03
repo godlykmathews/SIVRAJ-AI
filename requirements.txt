@@ -1,0 +1,9 @@
+faster-whisper
+numpy
+piper-tts
+psutil
+pydantic>=2,<3
+python-dotenv
+sounddevice
+webrtcvad-wheels
+pytest
