@@ -6,13 +6,12 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Bifrost
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Godly K Mathews - College of Engineering Kallooppara
+- Member 2: Emmanuel Mathew Vinod - College of Engineering Kallooppara
 
 ### Project Description
 [2-3 lines about what your project does]
