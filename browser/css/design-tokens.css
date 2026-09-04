@@ -1,0 +1,99 @@
+/* ==========================================================================
+  DEFINITELYNOTCHROME BROWSER - CHROMIUM DESKTOP DESIGN TOKENS
+   Authentic Chromium / Chrome Dark Theme Palette
+   ========================================================================== */
+
+:root {
+  /* Chrome Dark Mode UI Surfaces */
+  --chrome-window-bg: #1f1f23;
+  --chrome-tabstrip-bg: #1f1f23;
+  --chrome-toolbar-bg: #292a2d;
+  --chrome-tab-active-bg: #292a2d;
+  --chrome-tab-hover-bg: rgba(255, 255, 255, 0.06);
+  --chrome-bookmarks-bg: #292a2d;
+  --chrome-omnibox-bg: #202124;
+  --chrome-omnibox-hover-bg: #1b1c1e;
+  --chrome-menu-bg: #292a2d;
+  --chrome-menu-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* Incognito Chrome Surfaces */
+  --chrome-incognito-tabstrip: #18181b;
+  --chrome-incognito-toolbar: #202023;
+  --chrome-incognito-tab-active: #202023;
+  --chrome-incognito-omnibox: #18181b;
+  --chrome-incognito-accent: #9d5cf7;
+
+  /* Typography & Foreground Colors */
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --text-disabled: #5f6368;
+  --text-link: #8ab4f8;
+
+  /* Chrome Borders & Dividers */
+  --chrome-divider: rgba(255, 255, 255, 0.12);
+  --chrome-border-subtle: rgba(255, 255, 255, 0.08);
+  --chrome-focus-ring: #8ab4f8;
+  --chrome-star-active: #fbbc04;
+
+  /* Typography */
+  --font-chrome: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  /* Dimensions */
+  --tabstrip-height: 40px;
+  --tab-height: 34px;
+  --toolbar-height: 44px;
+  --bookmarks-height: 28px;
+  --omnibox-height: 32px;
+  --radius-tab: 8px 8px 0 0;
+  --radius-omnibox: 16px;
+  --radius-btn: 50%;
+  --radius-menu: 8px;
+
+  /* Shadows */
+  --shadow-menu: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-omnibox-focus: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--chrome-window-bg);
+  color: var(--text-primary);
+  font-family: var(--font-chrome);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Inputs & Web content selection */
+input, textarea, .selectable-text {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Native Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}

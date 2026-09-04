@@ -1,0 +1,139 @@
+body.light-mode {
+  --chrome-window-bg: #dee1e6;
+  --chrome-tabstrip-bg: #dee1e6;
+  --chrome-toolbar-bg: #f1f3f4;
+  --chrome-tab-active-bg: #f1f3f4;
+  --chrome-tab-hover-bg: rgba(60, 64, 67, .08);
+  --chrome-bookmarks-bg: #f1f3f4;
+  --chrome-omnibox-bg: #e9edf1;
+  --chrome-omnibox-hover-bg: #fff;
+  --chrome-menu-bg: #fff;
+  --chrome-menu-hover-bg: #f1f3f4;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-disabled: #9aa0a6;
+  --text-link: #1967d2;
+  --chrome-divider: rgba(60, 64, 67, .2);
+  --chrome-border-subtle: rgba(60, 64, 67, .16);
+  --chrome-focus-ring: #1a73e8;
+}
+body.light-mode, body.light-mode #browser-app, body.light-mode .browser-viewport, body.light-mode .site-viewport-container { background: #fff; color: #202124; }
+body.light-mode .chrome-tabstrip, body.light-mode .chrome-toolbar, body.light-mode .chrome-bookmarks-bar { color: #202124; box-shadow: 0 1px 2px rgba(60,64,67,.18); }
+body.light-mode .omnibox, body.light-mode .chrome-menu-popup, body.light-mode .omnibox-dropdown { background: #fff; border-color: #dadce0; color: #202124; box-shadow: 0 4px 16px rgba(60,64,67,.22); }
+body.light-mode .omnibox-input, body.light-mode .menu-item, body.light-mode .dropdown-title { color: #202124; }
+body.light-mode .toolbar-btn, body.light-mode .new-tab-btn, body.light-mode .win-btn, body.light-mode .bookmark-item { color: #5f6368; }
+body.light-mode .website-viewport-root, body.light-mode .chrome-history-page, body.light-mode .chrome-error-page, body.light-mode .home-container { background: #fff; color: #202124; }
+body.light-mode .home-search-form, body.light-mode .quick-link, body.light-mode .recent-pages-list, body.light-mode .saved-item { background: #fff; border-color: #dadce0; color: #202124; }
+body.light-mode .home-header h1, body.light-mode .home-section-header h2, body.light-mode .quick-link strong, body.light-mode .recent-page strong, body.light-mode .saved-item strong { color: #202124; }
+body.light-mode .home-eyebrow, body.light-mode .home-section-header span, body.light-mode .quick-link small, body.light-mode .recent-page small, body.light-mode .recent-page time, body.light-mode .home-footer { color: #5f6368; }
+body.light-mode .notifications-panel, body.light-mode .browser-notif-center, body.light-mode .browser-toast-card { background: #fff; color: #202124; border-color: #dadce0; }
+body.light-mode .is-incognito-mode .chrome-tabstrip, body.light-mode .is-incognito-mode .chrome-toolbar, body.light-mode .is-incognito-mode .chrome-bookmarks-bar, body.light-mode .is-incognito-mode .omnibox { background: #f1f3f4; }
+
+/* Keep every internal module on the same Chrome light surface. */
+body.light-mode .robobook-app-root,
+body.light-mode .robonews-app-root,
+body.light-mode .robomatch-app-root,
+body.light-mode .roboshop-app-root,
+body.light-mode .profile-app-root,
+body.light-mode .chrome-history-page,
+body.light-mode .chrome-incognito-view,
+body.light-mode .website-viewport-root,
+body.light-mode .utility-page {
+  background-color: #fff;
+  color: #202124;
+}
+
+body.light-mode .robobook-app-root [class*="-sidebar"],
+body.light-mode .robobook-app-root [class*="-stream"],
+body.light-mode .robobook-app-root [class*="-widget"],
+body.light-mode .robonews-app-root [class*="-card"],
+body.light-mode .robonews-app-root [class*="-container"],
+body.light-mode .robomatch-app-root [class*="-card"],
+body.light-mode .robomatch-app-root [class*="-container"],
+body.light-mode .roboshop-app-root [class*="-card"],
+body.light-mode .roboshop-app-root [class*="-container"],
+body.light-mode .profile-app-root [class*="-card"],
+body.light-mode .profile-app-root [class*="-container"],
+body.light-mode .history-sidebar,
+body.light-mode .history-timeline-group,
+body.light-mode .history-row,
+body.light-mode .site-card,
+body.light-mode .utility-page [class*="-list"],
+body.light-mode .utility-page [class*="-layout"] {
+  background-color: #fff;
+  border-color: #dadce0;
+  color: #202124;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, .08);
+}
+
+body.light-mode .robobook-app-root input,
+body.light-mode .robobook-app-root textarea,
+body.light-mode .robonews-app-root input,
+body.light-mode .robomatch-app-root input,
+body.light-mode .roboshop-app-root input,
+body.light-mode .profile-app-root input,
+body.light-mode .utility-page input,
+body.light-mode .utility-page textarea {
+  background-color: #fff;
+  border-color: #dadce0;
+  color: #202124;
+}
+
+body.light-mode .rb-nav-item:hover,
+body.light-mode .rn-nav-link:hover,
+body.light-mode .rm-tab-btn:hover,
+body.light-mode .rs-category-pill:hover,
+body.light-mode .history-nav-item:hover,
+body.light-mode .utility-page [class*="-row"]:hover,
+body.light-mode .utility-page [class*="-result"]:hover {
+  background-color: #f1f3f4;
+}
+
+body.light-mode .rb-brand-title,
+body.light-mode .rn-brand-title,
+body.light-mode .rm-header-user,
+body.light-mode .rs-header-actions,
+body.light-mode .history-sidebar-title,
+body.light-mode .history-page-heading,
+body.light-mode .incognito-header-title,
+body.light-mode .site-header-title,
+body.light-mode .utility-header h1,
+body.light-mode .utility-page strong {
+  color: #202124;
+}
+
+body.light-mode .rb-nav-item,
+body.light-mode .rn-brand-tagline,
+body.light-mode .rn-breaking-text,
+body.light-mode .rm-header-user,
+body.light-mode .history-nav-item,
+body.light-mode .incognito-summary-text,
+body.light-mode .incognito-column li,
+body.light-mode .site-card-body,
+body.light-mode .site-card-footer,
+body.light-mode .utility-header p:last-child,
+body.light-mode .utility-page small,
+body.light-mode .utility-page p {
+  color: #5f6368;
+}
+
+body.light-mode .rn-breaking-ticker,
+body.light-mode .rm-header-bar,
+body.light-mode .rs-header-bar,
+body.light-mode .rs-category-bar,
+body.light-mode .profile-cover,
+body.light-mode .incognito-icon-wrapper {
+  background-color: #f1f3f4;
+  border-color: #dadce0;
+}
+
+body.light-mode .incognito-column h3,
+body.light-mode .site-card-author {
+  color: #202124;
+}
+
+body.light-mode .rm-tab-btn.active,
+body.light-mode .utility-primary,
+body.light-mode .clear-browsing-btn {
+  color: #fff;
+}

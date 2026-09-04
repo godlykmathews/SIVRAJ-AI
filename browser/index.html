@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'">
+  <title>definitely not chrome</title>
+  <meta name="description" content="definitely not chrome internal browser">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/browser-shell.css">
+  <link rel="stylesheet" href="css/homepage.css">
+  <link rel="stylesheet" href="css/incognito.css">
+  <link rel="stylesheet" href="css/site-container.css">
+  <link rel="stylesheet" href="css/robobook.css">
+  <link rel="stylesheet" href="css/robonews.css">
+  <link rel="stylesheet" href="css/robomatch.css">
+  <link rel="stylesheet" href="css/roboshop.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/notifications.css">
+  <link rel="stylesheet" href="css/utility-pages.css">
+  <link rel="stylesheet" href="css/light-mode.css">
+</head>
+<body>
+
+  <div id="browser-app">
+
+    <!-- 1. Chromium Tab Strip & Window Controls -->
+    <div class="chrome-tabstrip" id="chrome-tabstrip">
+      <div class="tab-container" id="tab-list">
+        <!-- Dynamic tabs rendered by tabManager.js -->
+      </div>
+
+      <!-- New Tab (+) Button -->
+      <button class="new-tab-btn" id="new-tab-btn" title="New Tab (Ctrl+T)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+
+      <!-- Windows Desktop Controls -->
+      <div class="window-controls">
+        <button class="win-btn" id="win-min" title="Minimize">
+          <svg width="10" height="1" viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg>
+        </button>
+        <button class="win-btn" id="win-max" title="Maximize">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor"><rect x="0.5" y="0.5" width="9" height="9"/></svg>
+        </button>
+        <button class="win-btn win-close" id="win-close" title="Close">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 1L9 9M9 1L1 9"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. Chromium Navigation Toolbar -->
+    <div class="chrome-toolbar" id="chrome-toolbar">
+      <!-- Back, Forward, Reload -->
+      <button class="toolbar-btn" id="nav-back-btn" title="Click to go back (Alt+Left)" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="toolbar-btn" id="nav-forward-btn" title="Click to go forward (Alt+Right)" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      <button class="toolbar-btn" id="nav-refresh-btn" title="Reload this page (F5)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 4v6h-6"></path>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+        </svg>
+      </button>
+
+      <!-- Omnibox Address / Search Bar -->
+      <div class="omnibox-container">
+        <div class="omnibox">
+          <div class="omnibox-security-icon" id="omnibox-security-icon" title="View site information">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+          </div>
+          <input type="text" 
+                 class="omnibox-input" 
+                 id="omnibox-input" 
+                 spellcheck="false" 
+                 autocomplete="off" 
+                 placeholder="Search or enter internal sivraj:// address">
+          <button class="omnibox-star-btn" id="omnibox-star-btn" title="Bookmark this tab">
+            ☆
+          </button>
+        </div>
+
+        <!-- Autocomplete Dropdown -->
+        <div class="omnibox-dropdown" id="omnibox-dropdown">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Extensions -->
+      <button class="toolbar-btn" id="chrome-extensions-btn" title="Extensions">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5a2.5 2.5 0 0 0-5 0V5H4c-1.1 0-2 .9-2 2v4h1.5a2.5 2.5 0 0 1 0 5H2v4c0 1.1.9 2 2 2h4v-1.5a2.5 2.5 0 0 1 5 0V22h4c1.1 0 2-.9 2-2v-4h1.5a2.5 2.5 0 0 0 0-5z"></path>
+        </svg>
+      </button>
+
+      <!-- Global Notifications Bell -->
+      <div class="browser-notif-btn-wrapper">
+        <button class="toolbar-btn" id="browser-notif-btn" title="Global Notifications">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+        <span class="browser-notif-badge" id="browser-notif-badge">3</span>
+      </div>
+
+      <button class="toolbar-btn" id="chrome-menu-btn" title="Customize and control DefinitelyNotChrome Browser">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="5" r="2"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="12" cy="19" r="2"></circle>
+        </svg>
+      </button>
+
+      <!-- Loading Progress Line -->
+      <div class="chrome-progress-bar" id="chrome-progress-bar"></div>
+    </div>
+
+    <!-- Notification Center Flyout -->
+    <div class="browser-notif-center hidden" id="browser-notif-center">
+      <!-- Rendered dynamically by app.js -->
+    </div>
+
+    <!-- Live Toast Alerts Container -->
+    <div class="browser-toast-container" id="browser-toast-container"></div>
+
+    <!-- 3. Three-Dot Popup Menu -->
+    <div class="chrome-menu-popup" id="chrome-menu-popup">
+      <div class="menu-item" id="menu-new-tab">
+        <div class="menu-item-left">
+          <span>New tab</span>
+        </div>
+        <span class="menu-shortcut">Ctrl+T</span>
+      </div>
+      <div class="menu-item" id="menu-new-incognito">
+        <div class="menu-item-left">
+          <span>New Incognito tab</span>
+        </div>
+        <span class="menu-shortcut">Ctrl+Shift+N</span>
+      </div>
+      <div class="menu-divider"></div>
+      <div class="menu-item" id="menu-history">
+        <div class="menu-item-left">
+          <span>History</span>
+        </div>
+        <span class="menu-shortcut">Ctrl+H</span>
+      </div>
+      <div class="menu-item" id="menu-bookmarks">
+        <div class="menu-item-left">
+          <span>Bookmarks</span>
+        </div>
+        <span class="menu-shortcut">Ctrl+Shift+O</span>
+      </div>
+      <div class="menu-item" id="menu-downloads">
+        <div class="menu-item-left">
+          <span>Downloads</span>
+        </div>
+        <span class="menu-shortcut">Ctrl+J</span>
+      </div>
+      <div class="menu-divider"></div>
+      <div class="menu-item" style="cursor: default;">
+        <div class="menu-item-left">
+          <span>Zoom</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button id="menu-zoom-out" style="background:transparent; border:1px solid #5f6368; color:#e8eaed; width:22px; height:22px; border-radius:4px; cursor:pointer;">−</button>
+          <span id="menu-zoom-val" style="font-size:12px; min-width:34px; text-align:center;">100%</span>
+          <button id="menu-zoom-in" style="background:transparent; border:1px solid #5f6368; color:#e8eaed; width:22px; height:22px; border-radius:4px; cursor:pointer;">+</button>
+        </div>
+      </div>
+      <div class="menu-item" id="menu-theme">
+        <div class="menu-item-left"><span>Appearance</span></div>
+        <span class="menu-shortcut" id="menu-theme-label">Dark</span>
+      </div>
+      <div class="menu-divider"></div>
+      <div class="menu-item" id="menu-settings">
+        <div class="menu-item-left">
+          <span>Settings</span>
+        </div>
+      </div>
+      <div class="menu-item" id="menu-about">
+        <div class="menu-item-left">
+          <span>About DefinitelyNotChrome Browser</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Bookmarks Bar -->
+    <div class="chrome-bookmarks-bar" id="chrome-bookmarks-bar">
+      <div class="bookmark-item active" data-url="sivraj://home">
+        <span>⚡</span>
+        <span>New Tab</span>
+      </div>
+      <div class="bookmark-item" data-url="sivraj://robobook">
+        <span>📘</span>
+        <span>RoboBook</span>
+      </div>
+      <div class="bookmark-item" data-url="sivraj://robonews">
+        <span>📰</span>
+        <span>RoboNews</span>
+      </div>
+      <div class="bookmark-item" data-url="sivraj://roboforum">
+        <span>💬</span>
+        <span>RoboForum</span>
+      </div>
+      <div class="bookmark-item" data-url="sivraj://robomatch">
+        <span>💘</span>
+        <span>RoboMatch</span>
+      </div>
+      <div class="bookmark-item" data-url="sivraj://roboshop">
+        <span>🛒</span>
+        <span>RoboShop</span>
+      </div>
+      <div class="bookmark-item" data-url="sivraj://history" style="margin-left: auto;">
+        <span>🕒</span>
+        <span>History</span>
+      </div>
+    </div>
+
+    <!-- 5. Website Viewport Area -->
+    <main class="browser-viewport" id="browser-viewport">
+      <div class="site-viewport-container" id="site-viewport-container">
+        <!-- Rendered Web Content -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Main ES Module Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

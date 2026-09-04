@@ -7,3 +7,5 @@ __pycache__/
 *.aiff
 models/
 data/
+browser/node_modules/
+browser/dist/

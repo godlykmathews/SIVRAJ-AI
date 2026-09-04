@@ -1,6 +1,40 @@
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
-# Phase 2A: isolated camera presence test
+# SIVRAJ visual core
+
+The normal launch opens a local Jarvis-style HUD. Press **Enter** once to start
+the microphone, camera, and on-device human-presence detection. Press Enter again
+whenever the HUD is idle to speak another request. A green **HUMAN DETECTED** tag
+appears after presence is confirmed.
+
+```bash
+source .venv/bin/activate
+python main.py
+```
+
+Press `Q` or `Esc` to close the HUD. Camera frames are processed only in memory
+for presence detection; the camera output is not displayed or saved. The previous terminal prompt is available with
+`python main.py --classic-cli`; `--text-only` also uses the terminal prompt.
+
+## Autonomous Electron browser
+
+Install the browser runtime once:
+
+```bash
+cd browser
+npm install
+```
+
+After the visual core first confirms a human, five continuous seconds following
+their departure launches the Electron browser. An empty initial camera scan does
+not launch it. The app plays `airon hub video intro.mp4` as a
+full-window loader, then enters autonomous mode: a visible AI cursor opens tabs,
+navigates the included sites, follows page history, and repeats its browsing
+route. Only one browser process is launched for each absence period.
+
+The browser can also be tested directly with `cd browser && npm start`.
+
+# Isolated camera presence test
 
 Presence detection is an independent development mode. It does not start with the
 normal assistant and does not affect SIVRAJ's personality, memory, tools, or actions.
@@ -137,5 +171,3 @@ Made with ❤️ at TinkerHub Useless Projects
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
 ![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
-
-

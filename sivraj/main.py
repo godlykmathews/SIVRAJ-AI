@@ -24,6 +24,10 @@ def _parser() -> argparse.ArgumentParser:
         "--camera-test", action="store_true",
         help="Run isolated webcam presence detection; do not start the assistant",
     )
+    parser.add_argument(
+        "--classic-cli", action="store_true",
+        help="Use the original terminal prompt instead of the visual HUD",
+    )
     return parser
 
 
@@ -135,10 +139,20 @@ async def run(text_only: bool = False, no_speech: bool = False) -> int:
     return 0
 
 
+async def run_visual(no_speech: bool = False) -> int:
+    from sivraj.ui import JarvisHUD
+
+    config = Config.from_env()
+    runtime = AssistantRuntime(config)
+    return await JarvisHUD(runtime, config, speak=not no_speech).run()
+
+
 def main() -> None:
     args = _parser().parse_args()
     if args.camera_test:
         from sivraj.presence.test_camera import run_camera_test
 
         raise SystemExit(run_camera_test(Config.from_env()))
-    raise SystemExit(asyncio.run(run(args.text_only, args.no_speech)))
+    if args.classic_cli or args.text_only:
+        raise SystemExit(asyncio.run(run(args.text_only, args.no_speech)))
+    raise SystemExit(asyncio.run(run_visual(args.no_speech)))

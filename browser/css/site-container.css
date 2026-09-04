@@ -1,0 +1,275 @@
+/* ==========================================================================
+  DEFINITELYNOTCHROME BROWSER - SITE VIEWPORT & INTERNAL WEBSITES
+   Website content rendered inside the browser
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Website Container Layer
+   -------------------------------------------------------------------------- */
+.website-viewport-root {
+  width: 100%;
+  min-height: 100%;
+  background-color: #0f1117;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   2. Chrome-Style History Page (sivraj://history)
+   -------------------------------------------------------------------------- */
+.chrome-history-page {
+  display: flex;
+  min-height: 100%;
+  background-color: #202124;
+  color: var(--text-primary);
+}
+
+.history-sidebar {
+  width: 220px;
+  background-color: #292a2d;
+  padding: 24px 16px;
+  border-right: 1px solid var(--chrome-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e8eaed;
+  padding-left: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.history-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #9aa0a6;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+.history-nav-item.active, .history-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e8eaed;
+}
+
+.history-content-main {
+  flex: 1;
+  padding: 32px 48px;
+  max-width: 860px;
+}
+
+.history-toolbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--chrome-divider);
+}
+
+.history-page-heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: #e8eaed;
+}
+
+.clear-browsing-btn {
+  padding: 7px 16px;
+  background-color: #8ab4f8;
+  color: #202124;
+  border: none;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 100ms ease;
+}
+
+.clear-browsing-btn:hover {
+  opacity: 0.9;
+}
+
+.history-timeline-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background-color: #292a2d;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--chrome-border-subtle);
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 14px;
+  background-color: #292a2d;
+  cursor: pointer;
+  transition: background-color 100ms ease;
+}
+
+.history-row:hover {
+  background-color: #35363a;
+}
+
+.history-time {
+  font-size: 11.5px;
+  color: #9aa0a6;
+  min-width: 60px;
+}
+
+.history-favicon {
+  font-size: 14px;
+}
+
+.history-title {
+  font-size: 13px;
+  color: #e8eaed;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-url {
+  font-size: 12px;
+  color: #9aa0a6;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --------------------------------------------------------------------------
+   3. Realistic Website Viewport Previews
+   -------------------------------------------------------------------------- */
+.site-content-wrapper {
+  padding: 28px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  animation: site-fade-in 150ms ease-out;
+}
+
+@keyframes site-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.site-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}
+
+.site-header-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-header-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+.site-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.site-card {
+  background-color: #1e222b;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-card-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.site-card-body {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.site-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: #64748b;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+/* 404 Error */
+.chrome-error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #202124;
+}
+
+.chrome-error-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #e8eaed;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.chrome-error-code {
+  font-size: 12px;
+  color: #9aa0a6;
+  font-family: var(--font-mono);
+  margin-bottom: 24px;
+}
+
+.chrome-error-btn {
+  padding: 8px 18px;
+  background-color: #8ab4f8;
+  color: #202124;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
