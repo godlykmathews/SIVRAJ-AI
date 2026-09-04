@@ -66,12 +66,77 @@ SIVRAJ listens, remembers, talks back, questions harmless commands, performs sma
 
 
 ### Implementation
-For Software:
-# Installation
-[commands]
 
-# Run
-[commands]
+For Software:
+
+#### Installation
+
+Make sure Python 3.11+, Node.js 22+, npm, and
+[Ollama](https://ollama.com/) are installed. From the project root, run:
+
+```bash
+# Create and activate the Python environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install the assistant dependencies
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+
+# Create the local configuration
+cp .env.example .env
+
+# Download the local language model
+ollama pull qwen3:8b
+
+# Download the default Piper voice model
+mkdir -p models/piper
+python -m piper.download_voices --download-dir models/piper ml_IN-arjun-medium
+
+# Install the autonomous Electron browser
+cd browser
+npm install
+cd ..
+```
+
+On Windows, activate the Python environment with
+`.venv\Scripts\activate` instead of `source .venv/bin/activate`.
+
+#### Run
+
+Start Ollama in the first terminal:
+
+```bash
+ollama serve
+```
+
+Open a second terminal in the project directory and run SIVRAJ:
+
+```bash
+source .venv/bin/activate
+python main.py
+```
+
+Press **Enter** in the SIVRAJ HUD to activate the microphone and private camera
+presence detection. When a confirmed user leaves the camera view for five
+seconds, the Electron browser opens, plays the intro video, and begins autonomous
+browsing.
+
+Optional run modes:
+
+```bash
+# Original terminal interface
+python main.py --classic-cli
+
+# Text-only mode without microphone/Whisper
+python main.py --text-only --no-speech
+
+# Isolated camera and presence-detection test
+python main.py --camera-test
+
+# Run only the Electron browser
+cd browser && npm start
+```
 
 ### Project Documentation
 For Software:
@@ -89,25 +154,6 @@ For Software:
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
 *Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
@@ -127,6 +173,5 @@ Made with ❤️ at TinkerHub Useless Projects
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
 ![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
-
 
 
