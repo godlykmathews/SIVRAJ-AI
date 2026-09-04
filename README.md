@@ -141,32 +141,30 @@ cd browser && npm start
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots
+<img width="2932" height="1602" alt="image" src="https://github.com/user-attachments/assets/40348efb-3088-4f05-a638-dc403beba84c" />
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+*SIVRAJ Interface ready to take human query*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img width="2940" height="1568" alt="image" src="https://github.com/user-attachments/assets/a35e215e-923c-4279-848b-4a2d996f9730" />
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+*SIVRAJ Speaking back to user Query*
+
+<img width="2926" height="1736" alt="image" src="https://github.com/user-attachments/assets/93dc29a7-9c02-4042-bc57-5ab19b605da6" />
+
+*AI Using Browser autonomously when no humans around*
 
 ### Project Demo
 # Video
 [Add your demo video link here]
-*Explain what the video demonstrates*
+*Video demonstrates working to AI and autonomous browser action*
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Godly K Mathews : AI LLM
+- Emmanuel Mathew Vinod : UI/UX, Custom Browser for AI
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
