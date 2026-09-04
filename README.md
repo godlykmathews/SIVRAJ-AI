@@ -155,12 +155,14 @@ For Software:
 *AI Using Browser autonomously when no humans around*
 
 ### Project Demo
-# Video
-[Add your demo video link here]
-*Video demonstrates working to AI and autonomous browser action*
 
-# Additional Demos
-[Add any extra demo materials/links]
+#### Video
+
+[![SIVRAJ Project Demo — ULP 3.0](https://img.youtube.com/vi/570ErBWzj-A/maxresdefault.jpg)](https://www.youtube.com/watch?v=570ErBWzj-A)
+
+[Watch the SIVRAJ demo on YouTube](https://www.youtube.com/watch?v=570ErBWzj-A)
+
+*The video demonstrates SIVRAJ responding to the user and operating its browser autonomously.*
 
 ## Team Contributions
 - Godly K Mathews : AI LLM
@@ -171,5 +173,4 @@ Made with ❤️ at TinkerHub Useless Projects
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
 ![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
-
 
