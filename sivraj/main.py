@@ -20,6 +20,10 @@ def _parser() -> argparse.ArgumentParser:
         help="Skip microphone and Whisper initialization",
     )
     parser.add_argument("--no-speech", action="store_true", help="Do not speak replies")
+    parser.add_argument(
+        "--camera-test", action="store_true",
+        help="Run isolated webcam presence detection; do not start the assistant",
+    )
     return parser
 
 
@@ -133,4 +137,8 @@ async def run(text_only: bool = False, no_speech: bool = False) -> int:
 
 def main() -> None:
     args = _parser().parse_args()
+    if args.camera_test:
+        from sivraj.presence.test_camera import run_camera_test
+
+        raise SystemExit(run_camera_test(Config.from_env()))
     raise SystemExit(asyncio.run(run(args.text_only, args.no_speech)))

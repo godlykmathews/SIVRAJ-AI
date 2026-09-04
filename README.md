@@ -1,5 +1,45 @@
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
+# Phase 2A: isolated camera presence test
+
+Presence detection is an independent development mode. It does not start with the
+normal assistant and does not affect SIVRAJ's personality, memory, tools, or actions.
+
+```bash
+source .venv/bin/activate
+python main.py --camera-test
+# Equivalent:
+python -m sivraj.presence.test_camera
+```
+
+The preview is mirrored, marks detected faces, and displays the debounced state,
+face count, FPS, detection latency, and absence countdown. Press `Q` or `Esc` to
+quit; Ctrl+C also performs a clean camera release.
+
+Frames are processed only in memory. SIVRAJ does not save images, screenshots, or
+video. On macOS, grant the terminal or Python application access under **System
+Settings → Privacy & Security → Camera**. A permission denial or invalid camera
+index produces a readable `[PRESENCE ERROR]` instead of affecting normal startup.
+
+Configuration defaults:
+
+```dotenv
+CAMERA_INDEX=0
+CAMERA_PREVIEW=true
+CAMERA_FRAME_WIDTH=640
+PRESENCE_CONFIRM_FRAMES=2
+PRESENCE_ABSENCE_THRESHOLD=5.0
+PRESENCE_TARGET_FPS=12
+FACE_SCALE_FACTOR=1.1
+FACE_MIN_NEIGHBORS=5
+FACE_MIN_SIZE=60
+```
+
+This phase uses OpenCV's lightweight frontal-face Haar cascade. It answers “is at
+least one visible face in front of the computer?”, not identity or full human-body
+presence. A turned-away or fully obscured person may not be detected. No face
+recognition, recording, cloud vision, or heavier person model is included.
+
 
 
 # SIVRAJ - InvertAI Assistant 🎯
@@ -97,6 +137,5 @@ Made with ❤️ at TinkerHub Useless Projects
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
 ![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
-
 
 

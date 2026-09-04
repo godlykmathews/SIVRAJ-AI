@@ -39,6 +39,15 @@ class Config:
     database_path: Path = Path("data/sivraj.db")
     conversation_temperature: float = 0.8
     extraction_temperature: float = 0.2
+    camera_index: int = 0
+    camera_preview: bool = True
+    camera_frame_width: int = 640
+    presence_confirm_frames: int = 2
+    presence_absence_threshold: float = 5.0
+    presence_target_fps: float = 12.0
+    face_scale_factor: float = 1.1
+    face_min_neighbors: int = 5
+    face_min_size: int = 60
 
     @classmethod
     def from_env(cls) -> "Config":
@@ -61,6 +70,17 @@ class Config:
             database_path=Path(os.getenv("DATABASE_PATH", "data/sivraj.db")).expanduser(),
             conversation_temperature=float(os.getenv("CONVERSATION_TEMPERATURE", "0.8")),
             extraction_temperature=float(os.getenv("EXTRACTION_TEMPERATURE", "0.2")),
+            camera_index=int(os.getenv("CAMERA_INDEX", "0")),
+            camera_preview=_bool(os.getenv("CAMERA_PREVIEW"), True),
+            camera_frame_width=max(160, int(os.getenv("CAMERA_FRAME_WIDTH", "640"))),
+            presence_confirm_frames=max(1, int(os.getenv("PRESENCE_CONFIRM_FRAMES", "2"))),
+            presence_absence_threshold=max(
+                0.1, float(os.getenv("PRESENCE_ABSENCE_THRESHOLD", "5.0"))
+            ),
+            presence_target_fps=max(1.0, float(os.getenv("PRESENCE_TARGET_FPS", "12"))),
+            face_scale_factor=max(1.01, float(os.getenv("FACE_SCALE_FACTOR", "1.1"))),
+            face_min_neighbors=max(0, int(os.getenv("FACE_MIN_NEIGHBORS", "5"))),
+            face_min_size=max(10, int(os.getenv("FACE_MIN_SIZE", "60"))),
         )
 
     @property

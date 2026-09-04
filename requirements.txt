@@ -1,5 +1,6 @@
 faster-whisper
 numpy
+opencv-python>=4.10,<5
 piper-tts
 psutil
 pydantic>=2,<3
